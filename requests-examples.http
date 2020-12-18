@@ -1,0 +1,150 @@
+Примеры запросов
+Токен админ 5b40c0c0b6414fe0be250d5416294177dbf2b32f
+Токе пользвателя e69681c58dd6b1364df56699297e80cbf77a3700
+
+
+###
+
+GET http://127.0.0.1:8000/api/v1/products/
+Content-Type: application/json
+
+
+###
+
+
+POST http://127.0.0.1:8000/api/v1/products/
+Content-Type: application/json
+Authorization: Token 5b40c0c0b6414fe0be250d5416294177dbf2b32f
+
+{
+    "name": "Товар7",
+    "description": "синий",
+    "price": "3500.00"
+}
+
+###
+
+GET http://127.0.0.1:8000/api/v1/products/?name=Товар7
+Content-Type: application/json
+Authorization: Token 5b40c0c0b6414fe0be250d5416294177dbf2b32f
+
+###
+
+GET http://127.0.0.1:8000/api/v1/reviews/
+Content-Type: application/json
+Authorization: Token 5b40c0c0b6414fe0be250d5416294177dbf2b32f
+
+###
+
+POST http://127.0.0.1:8000/api/v1/reviews/
+Content-Type: application/json
+Authorization: Token e69681c58dd6b1364df56699297e80cbf77a3700
+
+{
+    "product_id": 2,
+    "rating": "5",
+    "text": "Хорошо"
+}
+
+###
+
+PATCH http://127.0.0.1:8000/api/v1/reviews/14/
+Content-Type: application/json
+Authorization: Token 5b40c0c0b6414fe0be250d5416294177dbf2b32f
+
+{
+    "product_id": 2,
+    "rating": "3",
+    "text": "уд"
+}
+
+###
+
+DELETE http://127.0.0.1:8000/api/v1/reviews/14/
+Content-Type: application/json
+Authorization: Token 5b40c0c0b6414fe0be250d5416294177dbf2b32f
+
+###
+
+GET http://127.0.0.1:8000/api/v1/reviews/?product_id=3
+Content-Type: application/json
+Authorization: Token 5b40c0c0b6414fe0be250d5416294177dbf2b32f
+
+###
+
+GET http://127.0.0.1:8000/api/v1/orders/
+Content-Type: application/json
+Authorization: Token e69681c58dd6b1364df56699297e80cbf77a3700
+
+###
+
+POST http://127.0.0.1:8000/api/v1/orders/
+Content-Type: application/json
+Authorization: Token 5b40c0c0b6414fe0be250d5416294177dbf2b32f
+
+{
+    "orders_in": [{"product_id": "2", "quantity": 8},
+        {"product_id": "3", "quantity": 7}
+    ]
+}
+
+###
+
+PATCH http://127.0.0.1:8000/api/v1/orders/28/
+Content-Type: application/json
+Authorization: Token 5b40c0c0b6414fe0be250d5416294177dbf2b32f
+
+{
+  "status": "IN_PROGRESS"
+}
+
+###
+
+GET http://127.0.0.1:8000/api/v1/orders/?positions=3
+Content-Type: application/json
+Authorization: Token 5b40c0c0b6414fe0be250d5416294177dbf2b32f
+
+###
+
+GET http://127.0.0.1:8000/api/v1/orders/?status=IN_PROGRESS
+Content-Type: application/json
+Authorization: Token 5b40c0c0b6414fe0be250d5416294177dbf2b32f
+
+###
+
+DELETE http://127.0.0.1:8000/api/v1/orders/15/
+Content-Type: application/json
+Authorization: Token 5b40c0c0b6414fe0be250d5416294177dbf2b32f
+
+###
+
+GET http://127.0.0.1:8000/api/v1/orders/?created_at=2020-12-10T21:07:56.252376Z
+Content-Type: application/json
+Authorization: Token 5b40c0c0b6414fe0be250d5416294177dbf2b32f
+
+###
+
+
+GET http://127.0.0.1:8000/api/v1/collections/
+Content-Type: application/json
+
+
+###
+
+POST http://127.0.0.1:8000/api/v1/collections/
+Content-Type: application/json
+Authorization: Token 5b40c0c0b6414fe0be250d5416294177dbf2b32f
+
+{
+    "title": "Подборка2",
+    "text": "На любой вкус",
+    "collections": [
+      {
+        "product_id": 3
+      },
+      {
+        "product_id": 2
+      }]
+}
+
+###
